@@ -11,6 +11,12 @@ const SimpleStorage = () => {
 
 	const goerliChainId = 5;
 
+	const providerRead = new ethers.providers.Web3Provider(window.ethereum); //Imported ethers from index.html with "<script src="https://cdn.ethers.io/lib/ethers-5.6.umd.min.js" type="text/javascript"></script>".
+
+	const contractRead = new ethers.Contract(contractAddress, contractABI, providerRead);
+
+	// const signer = provider.getSigner(); //Do this when the user clicks "enableEthereumButton" which will call getAccount() to get the signer private key for the provider.  	
+
 	// const providerRead = new ethers.providers.Web3Provider(window.ethereum); //Imported ethers from index.html with "<script src="https://cdn.ethers.io/lib/ethers-5.6.umd.min.js" type="text/javascript"></script>".
 
 	const [errorMessage, setErrorMessage] = useState(null);
@@ -19,7 +25,7 @@ const SimpleStorage = () => {
 
 	const [currentContractVal, setCurrentContractVal] = useState('Connect wallet then click button above');
 
-	const [provider, setProvider] = useState(null);
+	const [providerAccount, setProvider] = useState(null);
 	const [signer, setSigner] = useState(null);
 	const [contract, setContract] = useState(null);
 
@@ -96,14 +102,26 @@ const SimpleStorage = () => {
 		// }
 	}
 
-	const getCurrentVal = async () => {
-		try{
-			let val = await contract.storedData();
-			setCurrentContractVal(val.toNumber());
-		} catch {
-			alert("Connect your wallet first.")
+	// const getCurrentVal = async () => {
+	// 	try{
+	// 		let val = await contract.storedData();
+	// 		setCurrentContractVal(val.toNumber());
+	// 	} catch {
+	// 		alert("Connect your wallet first.")
+	// 	}
+	// }
+
+	getStoredData();
+
+	async function getStoredData() {
+		let storedDataCallValue = await contractRead.storedData()
+		if(storedDataCallValue.toNumber() === undefined){
+			setCurrentContractVal("Install Metamask and select Goerli Testnet to have a Web3 provider to read blockchain data.");
 		}
-	}
+		else{
+			setCurrentContractVal(storedDataCallValue.toNumber());
+		}
+	  }
 	
 	// async function getChainIdConnected() {
 
@@ -118,17 +136,15 @@ const SimpleStorage = () => {
 		<h4> </h4>
 			<button onClick={connectWalletHandler}>{connButtonText}</button>
 			<div>
-			<button onClick={getCurrentVal} style={{marginTop: '5em'}}> Get Current Contract Value </button>
-			<div>
-			</div>
+			<h5> storedData(): </h5>
 			{currentContractVal}
 			{errorMessage}
 			<h4> </h4>
 			</div>
 			<form onSubmit={setHandler}>
-				<input id="setText" type="text"/>
+				<button type={"submit"}> set(uint256 x) </button>
 				<h4> </h4>
-				<button type={"submit"}> Update Contract </button>
+				<input id="setText" type="text" placeholder="input uint256 value"/>
 			</form>
 		</div>
 	);

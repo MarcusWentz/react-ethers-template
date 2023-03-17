@@ -3,6 +3,10 @@ body {
   color: white;
 } 
 
+input {
+  text-align: center;
+}
+
 .App {
   text-align: center;
 }
