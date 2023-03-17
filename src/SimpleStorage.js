@@ -9,6 +9,10 @@ const SimpleStorage = () => {
 	// deploy simple storage contract and paste deployed contract address here. This value is local ganache chain
 	let contractAddress = '0xdbaA7dfBd9125B7a43457D979B1f8a1Bd8687f37';
 
+	const goerliChainId = 5;
+
+	// const providerRead = new ethers.providers.Web3Provider(window.ethereum); //Imported ethers from index.html with "<script src="https://cdn.ethers.io/lib/ethers-5.6.umd.min.js" type="text/javascript"></script>".
+
 	const [errorMessage, setErrorMessage] = useState(null);
 	const [defaultAccount, setDefaultAccount] = useState(null);
 	const [connButtonText, setConnButtonText] = useState('🦊 Connect Wallet');
@@ -19,7 +23,7 @@ const SimpleStorage = () => {
 	const [signer, setSigner] = useState(null);
 	const [contract, setContract] = useState(null);
 
-	const connectWalletHandler = () => {
+	const connectWalletHandler = async () => {
 		if (window.ethereum && window.ethereum.isMetaMask) {
 
 			window.ethereum.request({ method: 'eth_requestAccounts'})
@@ -31,6 +35,26 @@ const SimpleStorage = () => {
 				setErrorMessage(error.message);
 			
 			});
+
+			// let chainId = await getChainIdConnected();
+			// alert(JSON.stringify(chainId))
+
+			if(window.ethereum.networkVersion != goerliChainId){
+				// alert("You are not on the Goerli Testnet! Please switch to Goerli and refresh page.")
+				try{
+				  await window.ethereum.request({
+					  method: "wallet_switchEthereumChain",
+					  params: [{
+						 chainId: "0x5"
+					  }]
+					})
+				//   location.reload(); 
+					window.location.reload(true);
+				  // alert("Failed to add the network at chainId " + goerliChainId + " with wallet_addEthereumChain request. Add the network with https://chainlist.org/ or do it manually. Error log: " + error.message)
+				} catch (error) {
+				  alert("Failed to add the network at chainId " + goerliChainId + " with wallet_addEthereumChain request. Add the network with https://chainlist.org/ or do it manually. Error log: " + error.message)
+				}
+			  }
 
 		} else {
 			console.log('Need to install MetaMask');
@@ -44,16 +68,8 @@ const SimpleStorage = () => {
 		updateEthers();
 	}
 
-	const chainChangedHandler = () => {
-		// reload the page to avoid any errors with chain change mid use of application
-		window.location.reload();
-	}
-
-
 	// listen for account changes
 	window.ethereum.on('accountsChanged', accountChangedHandler);
-
-	window.ethereum.on('chainChanged', chainChangedHandler);
 
 	const updateEthers = () => {
 		let tempProvider = new ethers.providers.Web3Provider(window.ethereum);
@@ -68,7 +84,7 @@ const SimpleStorage = () => {
 
 	const setHandler = (event) => {
 		if(event.target.setText.value === "") {
-			alert("test");
+			alert("Enter a number.");
 			return;
 		}
 		// try{
@@ -89,6 +105,14 @@ const SimpleStorage = () => {
 		}
 	}
 	
+	// async function getChainIdConnected() {
+
+	// 	const connectedNetworkObject = await providerRead.getNetwork();
+	// 	const chainIdConnected = connectedNetworkObject.chainId;
+	// 	return chainIdConnected
+	  
+	// }
+
 	return (
 		<div>
 		<h4> </h4>
