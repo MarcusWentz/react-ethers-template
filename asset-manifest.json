@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/react-ethers-template/static/css/main.3a0fab21.chunk.css",
-    "main.js": "/react-ethers-template/static/js/main.f71f1181.chunk.js",
-    "main.js.map": "/react-ethers-template/static/js/main.f71f1181.chunk.js.map",
+    "main.js": "/react-ethers-template/static/js/main.12729cb3.chunk.js",
+    "main.js.map": "/react-ethers-template/static/js/main.12729cb3.chunk.js.map",
     "runtime-main.js": "/react-ethers-template/static/js/runtime-main.5a471ba8.js",
     "runtime-main.js.map": "/react-ethers-template/static/js/runtime-main.5a471ba8.js.map",
     "static/js/2.37ded1a6.chunk.js": "/react-ethers-template/static/js/2.37ded1a6.chunk.js",
@@ -17,6 +17,6 @@
     "static/js/runtime-main.5a471ba8.js",
     "static/js/2.37ded1a6.chunk.js",
     "static/css/main.3a0fab21.chunk.css",
-    "static/js/main.f71f1181.chunk.js"
+    "static/js/main.12729cb3.chunk.js"
   ]
 }
