@@ -13,7 +13,7 @@ const SimpleStorage = () => {
 	const [defaultAccount, setDefaultAccount] = useState(null);
 	const [connButtonText, setConnButtonText] = useState('🦊 Connect Wallet');
 
-	const [currentContractVal, setCurrentContractVal] = useState(null);
+	const [currentContractVal, setCurrentContractVal] = useState('Connect wallet then click button above');
 
 	const [provider, setProvider] = useState(null);
 	const [signer, setSigner] = useState(null);
@@ -67,15 +67,26 @@ const SimpleStorage = () => {
 	}
 
 	const setHandler = (event) => {
+		if(event.target.setText.value === "") {
+			alert("test");
+			return;
+		}
+		// try{
 		event.preventDefault();
 		console.log('sending ' + event.target.setText.value + ' to the contract');
 		contract.set(event.target.setText.value);
+		// } catch {
+		// 	alert("Enter a number.")
+		// }
 	}
 
 	const getCurrentVal = async () => {
-		let val = await contract.storedData();
-		console.log(val.toNumber());
-		setCurrentContractVal(val.toNumber());
+		try{
+			let val = await contract.storedData();
+			setCurrentContractVal(val.toNumber());
+		} catch {
+			alert("Connect your wallet first.")
+		}
 	}
 	
 	return (
@@ -83,17 +94,18 @@ const SimpleStorage = () => {
 		<h4> </h4>
 			<button onClick={connectWalletHandler}>{connButtonText}</button>
 			<div>
+			<button onClick={getCurrentVal} style={{marginTop: '5em'}}> Get Current Contract Value </button>
+			<div>
+			</div>
+			{currentContractVal}
+			{errorMessage}
 			<h4> </h4>
 			</div>
 			<form onSubmit={setHandler}>
 				<input id="setText" type="text"/>
+				<h4> </h4>
 				<button type={"submit"}> Update Contract </button>
 			</form>
-			<div>
-			<button onClick={getCurrentVal} style={{marginTop: '5em'}}> Get Current Contract Value </button>
-			</div>
-			{currentContractVal}
-			{errorMessage}
 		</div>
 	);
 }
