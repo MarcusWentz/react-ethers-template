@@ -89,22 +89,28 @@ const SimpleStorage = () => {
 	}
 
 	const setHandler = (event) => {
+
+		event.preventDefault(); //Keep this or else the page will refresh.
+
 		if(event.target.setText.value === "") {
-			alert("Enter a number after connecting your wallet again.");
+			alert("Enter a number.");
 			return;
 		}
 		if(contract === null) {
-			alert("Connect your wallet after the page refreshes.");
+			alert("Connect your wallet.");
 			return;
 		}
-		// try{
-		event.preventDefault();
-		console.log('sending ' + event.target.setText.value + ' to the contract');
+
+		contract.set(event.target.setText.value)
+		.then(tx => {
+			console.log("Tx submitted: " + tx)
+		})
+		.catch(e => {
+			 if (e.code === 4001){
+				 alert("Transaction request failed.")
+			 } 
+		});
 		
-		contract.set(event.target.setText.value);
-		// } catch {
-		// 	alert("Enter a number.")
-		// }
 	}
 
 	// const getCurrentVal = async () => {
