@@ -11,7 +11,7 @@ const SimpleStorage = () => {
 
 	const [errorMessage, setErrorMessage] = useState(null);
 	const [defaultAccount, setDefaultAccount] = useState(null);
-	const [connButtonText, setConnButtonText] = useState('Connect Wallet');
+	const [connButtonText, setConnButtonText] = useState('🦊 Connect Wallet');
 
 	const [currentContractVal, setCurrentContractVal] = useState(null);
 
@@ -23,9 +23,9 @@ const SimpleStorage = () => {
 		if (window.ethereum && window.ethereum.isMetaMask) {
 
 			window.ethereum.request({ method: 'eth_requestAccounts'})
-			.then(result => {
-				accountChangedHandler(result[0]);
-				setConnButtonText('Wallet Connected');
+			.then(accounts => {
+				accountChangedHandler(accounts[0]);
+				setConnButtonText(accounts[0].substr(0,5) + "..." +  accounts[0].substr(38,4) );
 			})
 			.catch(error => {
 				setErrorMessage(error.message);
@@ -80,10 +80,10 @@ const SimpleStorage = () => {
 	
 	return (
 		<div>
-		<h4> {"Get/Set Contract interaction"} </h4>
+		<h4> </h4>
 			<button onClick={connectWalletHandler}>{connButtonText}</button>
 			<div>
-				<h3>Address: {defaultAccount}</h3>
+			<h4> </h4>
 			</div>
 			<form onSubmit={setHandler}>
 				<input id="setText" type="text"/>
