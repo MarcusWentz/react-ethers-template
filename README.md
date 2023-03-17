@@ -4,7 +4,16 @@ Modified from:
 
 https://www.youtube.com/watch?v=swZRo6LFrCw
 
-$ npm install ethers
+Run locally with:
+```javascript
+npm install
+```
+then
+```javascript
+npm start
+```
+
+
 
 
 
