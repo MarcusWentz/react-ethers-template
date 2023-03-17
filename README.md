@@ -12,3 +12,6 @@ npm start
 
 https://www.youtube.com/watch?v=swZRo6LFrCw
 
+## Setup GitHub Pages For React
+
+https://www.youtube.com/watch?v=4G6O0BIoq6M
