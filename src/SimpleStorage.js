@@ -157,6 +157,10 @@ const SimpleStorage = () => {
 				<h4> </h4>
 				<input id="setText" type="text" placeholder="input uint256 value"/>
 			</form>
+			<h4> </h4>
+			<form action="https://github.com/MarcusWentz/react-ethers-template">
+				<input type="submit" class="btn btn-outline-light" value="GitHub" />
+			</form>
 		</div>
 	);
 }
