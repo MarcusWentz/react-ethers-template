@@ -11,6 +11,11 @@ const SimpleStorage = () => {
 
 	const goerliChainId = 5;
 
+	if(window.ethereum === undefined){
+		alert("Metamask is not detected. Install Metamask then try again.");
+		window.location.reload(true);
+	}
+
 	const providerRead = new ethers.providers.Web3Provider(window.ethereum); //Imported ethers from index.html with "<script src="https://cdn.ethers.io/lib/ethers-5.6.umd.min.js" type="text/javascript"></script>".
 
 	const contractRead = new ethers.Contract(contractAddress, contractABI, providerRead);
