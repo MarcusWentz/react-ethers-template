@@ -1,17 +1,25 @@
-## Run locally
+## Deployed Site Link On GitHub Pages:
 
-```javascript
-npm install
-```
-then
-```javascript
-npm start
-```
-
-## Modified from: 
-
-https://www.youtube.com/watch?v=swZRo6LFrCw
+https://marcuswentz.github.io/react-ethers-template/
 
 ## Setup GitHub Pages For React
 
+```shell
+npm run deploy
+```
+
 https://www.youtube.com/watch?v=4G6O0BIoq6M
+
+## Run Locally For Fast Testing
+
+```shell
+npm install
+```
+then
+```shell
+npm run start
+```
+
+## Template Modified Source Credit: 
+
+https://www.youtube.com/watch?v=swZRo6LFrCw
