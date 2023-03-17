@@ -90,12 +90,17 @@ const SimpleStorage = () => {
 
 	const setHandler = (event) => {
 		if(event.target.setText.value === "") {
-			alert("Enter a number.");
+			alert("Enter a number after connecting your wallet again.");
+			return;
+		}
+		if(contract === null) {
+			alert("Connect your wallet after the page refreshes.");
 			return;
 		}
 		// try{
 		event.preventDefault();
 		console.log('sending ' + event.target.setText.value + ' to the contract');
+		
 		contract.set(event.target.setText.value);
 		// } catch {
 		// 	alert("Enter a number.")
@@ -130,6 +135,12 @@ const SimpleStorage = () => {
 	// 	return chainIdConnected
 	  
 	// }
+
+	contractRead.on("setEvent", () => {
+
+		getStoredData()
+	  
+	});
 
 	return (
 		<div>
