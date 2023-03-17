@@ -1,4 +1,4 @@
-## Deployed Site Link On GitHub Pages:
+## Deployed Site Link On GitHub Pages
 
 https://marcuswentz.github.io/react-ethers-template/
 
@@ -20,6 +20,6 @@ then
 npm run start
 ```
 
-## Template Modified Source Credit: 
+## Template Modified Source Credit
 
 https://www.youtube.com/watch?v=swZRo6LFrCw
