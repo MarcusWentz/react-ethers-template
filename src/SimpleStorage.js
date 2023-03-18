@@ -156,7 +156,7 @@ const SimpleStorage = () => {
 	return (
 		<div>
 		<h4> </h4>
-			<button onClick={connectWalletHandler}>{connButtonText}</button>
+			<button className="button buttonConnectMetamask" onClick={connectWalletHandler}>{connButtonText}</button>
 			<div>
 			<h5> storedData(): </h5>
 			{currentContractVal}
@@ -164,13 +164,13 @@ const SimpleStorage = () => {
 			<h4> </h4>
 			</div>
 			<form onSubmit={setHandler}>
-				<button type={"submit"}> set(uint256 x) </button>
+				<button className="button buttonHighContrast" type={"submit"}> set(uint256 x) </button>
 				<h4> </h4>
 				<input id="setText" type="text" placeholder="input uint256 value"/>
 			</form>
 			<h4> </h4>
 			<form action="https://github.com/MarcusWentz/react-ethers-template">
-				<input type="submit" value="GitHub" />
+				<input className="button buttonHighContrast" type="submit" value="GitHub" />
 			</form>
 		</div>
 	);
