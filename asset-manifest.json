@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/react-ethers-template/static/css/main.3a0fab21.chunk.css",
-    "main.js": "/react-ethers-template/static/js/main.12729cb3.chunk.js",
-    "main.js.map": "/react-ethers-template/static/js/main.12729cb3.chunk.js.map",
+    "main.css": "/react-ethers-template/static/css/main.9fc4d39b.chunk.css",
+    "main.js": "/react-ethers-template/static/js/main.f6c4ecba.chunk.js",
+    "main.js.map": "/react-ethers-template/static/js/main.f6c4ecba.chunk.js.map",
     "runtime-main.js": "/react-ethers-template/static/js/runtime-main.5a471ba8.js",
     "runtime-main.js.map": "/react-ethers-template/static/js/runtime-main.5a471ba8.js.map",
     "static/js/2.37ded1a6.chunk.js": "/react-ethers-template/static/js/2.37ded1a6.chunk.js",
@@ -10,13 +10,13 @@
     "static/js/3.c48eb81e.chunk.js": "/react-ethers-template/static/js/3.c48eb81e.chunk.js",
     "static/js/3.c48eb81e.chunk.js.map": "/react-ethers-template/static/js/3.c48eb81e.chunk.js.map",
     "index.html": "/react-ethers-template/index.html",
-    "static/css/main.3a0fab21.chunk.css.map": "/react-ethers-template/static/css/main.3a0fab21.chunk.css.map",
+    "static/css/main.9fc4d39b.chunk.css.map": "/react-ethers-template/static/css/main.9fc4d39b.chunk.css.map",
     "static/js/2.37ded1a6.chunk.js.LICENSE.txt": "/react-ethers-template/static/js/2.37ded1a6.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.5a471ba8.js",
     "static/js/2.37ded1a6.chunk.js",
-    "static/css/main.3a0fab21.chunk.css",
-    "static/js/main.12729cb3.chunk.js"
+    "static/css/main.9fc4d39b.chunk.css",
+    "static/js/main.f6c4ecba.chunk.js"
   ]
 }
