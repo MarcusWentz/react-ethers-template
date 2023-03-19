@@ -23,3 +23,8 @@ npm run start
 ## Template Modified Source Credit
 
 https://www.youtube.com/watch?v=swZRo6LFrCw
+
+
+## Example in jQuery minimalist design
+
+https://github.com/MarcusWentz/Web3_Get_Set_Contract_Metamask
