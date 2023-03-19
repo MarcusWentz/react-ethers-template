@@ -108,7 +108,7 @@ const SimpleStorage = () => {
 
 		contract.set(event.target.setText.value)
 		.then(tx => {
-			console.log("Tx submitted: " + tx)
+			console.log("Tx submitted: " + tx.hash)
 		})
 		.catch(e => {
 			 if (e.code === 4001){
