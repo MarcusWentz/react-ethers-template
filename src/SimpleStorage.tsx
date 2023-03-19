@@ -127,7 +127,9 @@ const SimpleStorage = () => {
 	// 	}
 	// }
 
-	getStoredData();
+	if(window.ethereum.networkVersion == goerliChainId){
+		getStoredData();
+	}
 
 	async function getStoredData() {
 		let storedDataCallValue = await contractRead.storedData()
@@ -160,7 +162,6 @@ const SimpleStorage = () => {
 			<div>
 			<h5> storedData(): </h5>
 			{currentContractVal}
-			{errorMessage}
 			<h4> </h4>
 			</div>
 			<form onSubmit={setHandler}>
@@ -168,6 +169,8 @@ const SimpleStorage = () => {
 				<h4> </h4>
 				<input id="setText" type="text" placeholder="input uint256 value"/>
 			</form>
+			<h4> </h4>
+			{errorMessage}
 			<h4> </h4>
 			<form action="https://github.com/MarcusWentz/react-ethers-template">
 				<input className="button buttonHighContrast" type="submit" value="GitHub" />
