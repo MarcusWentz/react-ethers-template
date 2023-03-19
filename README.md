@@ -25,6 +25,6 @@ npm run start
 https://www.youtube.com/watch?v=swZRo6LFrCw
 
 
-## Example in jQuery minimalist design
+## Example in Vanilla Javascript minimalist design
 
 https://github.com/MarcusWentz/Web3_Get_Set_Contract_Metamask
