@@ -1,6 +1,6 @@
 // import logo from './logo.svg';
 import './App.css';
-import SimpleStorage from './SimpleStorage';
+import SimpleStorage from './pages/SimpleStorage';
 
 function App() {
   return (

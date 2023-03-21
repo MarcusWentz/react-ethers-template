@@ -2,7 +2,7 @@
 
 import React, {useState} from 'react'
 import {ethers} from 'ethers'
-import contractABI from './contracts/contractABI.json'
+import contractABI from '../contracts/contractABI.json'
 
 const SimpleStorage = () => {
 
